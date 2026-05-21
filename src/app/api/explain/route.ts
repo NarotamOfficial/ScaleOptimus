@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
-import { genAI } from '@/lib/utils';
+import { GoogleGenAI } from '@google/generative-ai';
+
+const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyBkbqb2gH-c3mwWhYgWyGw6ud0nUxJwKag';
+const genAI = new GoogleGenAI({ apiKey });
 
 export async function POST(req: Request) {
   try {
@@ -17,7 +20,8 @@ export async function POST(req: Request) {
     `;
 
     const result = await model.generateContent(prompt);
-    return NextResponse.json({ explanation: result.response.text() });
+    const response = await result.response;
+    return NextResponse.json({ explanation: response.text() });
   } catch (err: any) {
     return NextResponse.json({ error: 'Asynchronous explanation pipeline timeout.' }, { status: 500 });
   }
