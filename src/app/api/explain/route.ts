@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
-import { GoogleGenAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyBkbqb2gH-c3mwWhYgWyGw6ud0nUxJwKag';
-const genAI = new GoogleGenAI({ apiKey });
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export async function POST(req: Request) {
   try {
     const { type, inputs, outputs } = await req.json();
+    
+    // Using the highly recommended efficient flash model
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     const prompt = `
