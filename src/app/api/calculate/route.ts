@@ -1,12 +1,34 @@
 import { NextResponse } from 'next/server';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
 export async function POST(req: Request) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const cookieStore = cookies();
+  
+  // Create a server client with the new @supabase/ssr methodology
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://scaleoptimus.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_6xbMxuFzj0zg9kR4JuZyeQ_bgXgfuMw',
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+        set(name: string, value: string, options: any) {
+          cookieStore.set({ name, value, ...options });
+        },
+        remove(name: string, options: any) {
+          cookieStore.set({ name, value: '', ...options });
+        },
+      },
+    }
+  );
+
   const { data: { session } } = await supabase.auth.getSession();
 
-  if (!session) return NextResponse.json({ error: 'Identity verification required.' }, { status: 401 });
+  if (!session) {
+    return NextResponse.json({ error: 'Identity verification required.' }, { status: 401 });
+  }
 
   const userId = session.user.id;
   const { type, inputs } = await req.json();
