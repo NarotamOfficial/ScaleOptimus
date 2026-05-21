@@ -4,6 +4,11 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --border: 240 5.9% 90%;
+  }
+  .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
@@ -11,13 +16,18 @@
 }
 
 body {
-  background-color: #09090b;
-  color: #fafafa;
+  background-color: #FAFAFB; /* Light professional backdrop */
+  color: #18181B;
   overflow-x: hidden;
+  font-feature-settings: "ss01", "ss03", "cv01", "cv02", "cv03";
 }
 
-.futuristic-grid {
-  background-image: linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
-  background-size: 50px 50px;
+.hero-glow {
+  background-image: linear-gradient(135deg, #FFEDD5 0%, #FDF2F8 100%);
+}
+
+.subtle-grid {
+  background-image: linear-gradient(#EFEFEF 1px, transparent 1px),
+                    linear-gradient(90deg, #EFEFEF 1px, transparent 1px);
+  background-size: 30px 30px;
 }
