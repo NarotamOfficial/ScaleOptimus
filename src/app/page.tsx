@@ -1,67 +1,64 @@
 import Link from 'next/link';
-import { ArrowRight, Shield, Cpu, Activity, Zap, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, BarChart3, TrendingUp, DollarSign, Target } from 'lucide-react';
 
 export default function LandingPage() {
+  const calculators = [
+    { title: "Profit Margin", desc: "Analyze profitability instantly.", icon: <DollarSign className="w-6 h-6 text-orange-500" /> },
+    { title: "Target Pricing", desc: "Optimize retail metrics for growth.", icon: <Target className="w-6 h-6 text-pink-500" /> },
+    { title: "Break-Even", desc: "Define structural volume baselines.", icon: <BarChart2 className="w-6 h-6 text-orange-500" /> },
+    { title: "Timeline Growth", desc: "Map compound scaling trails.", icon: <TrendingUp className="w-6 h-6 text-pink-500" /> },
+  ];
+
   return (
-    <div className="space-y-32 pb-24">
-      {/* Hero Suite */}
-      <section className="max-w-6xl mx-auto px-4 pt-32 text-center space-y-8 relative">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/5 border border-indigo-500/20 rounded-full text-xs font-mono tracking-wider text-indigo-400 mx-auto">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" /> CONFIGURATION ENGINE V1.0 LIVE
-        </div>
-        <h1 className="text-5xl sm:text-7xl font-black tracking-tight text-white max-w-5xl mx-auto leading-[1.05]">
-          Process Business Numbers. <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
-            Extract Absolute Capital Clarity.
-          </span>
-        </h1>
-        <p className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed font-normal">
-          Bypass fragile spreadsheets. Map variables instantly through low-latency calculation processors with asynchronous minimalist execution explanations.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <Link href="/signup" className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-500 transition duration-200 flex items-center justify-center gap-2 shadow-xl shadow-indigo-600/10">
-            Initialize Free Core <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link href="/services" className="w-full sm:w-auto px-8 py-4 bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium rounded-xl hover:bg-zinc-800 transition duration-200">
-            Inspect Calculators
-          </Link>
-        </div>
-      </section>
-
-      {/* Feature Showcase Grid */}
-      <section className="max-w-7xl mx-auto px-4">
-        <div className="text-center space-y-4 mb-20">
-          <h2 className="text-3xl font-bold tracking-tight text-white">Engineered For Structural Business Accuracy</h2>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm">High-fidelity metrics processing designed explicitly for modern agencies, global freelancers, and growing ventures.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-zinc-900/30 border border-zinc-900 rounded-2xl space-y-4 hover:border-zinc-800 transition">
-            <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400"><Cpu className="w-5 h-5" /></div>
-            <h3 className="text-lg font-bold text-white">Deterministic Execution</h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">No stochastic chat engines or unpredictable outputs. Results are compiled via rigorous pure-mathematics criteria.</p>
+    <div className="space-y-24 pb-20">
+      {/* Hero Suite - image_6 style feel */}
+      <section className="hero-glow border-b border-zinc-200">
+        <div className="max-w-6xl mx-auto px-6 py-24 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-orange-200 rounded-full text-[10px] font-semibold text-orange-600 uppercase tracking-widest shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" /> CONFIGURATION ENGINE V1.0 LIVE
           </div>
-          <div className="p-8 bg-zinc-900/30 border border-zinc-900 rounded-2xl space-y-4 hover:border-zinc-800 transition">
-            <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400"><Shield className="w-5 h-5" /></div>
-            <h3 className="text-lg font-bold text-white">Isolated Security Matrix</h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">Transactions are recorded down inside relational databases with full row-level policy enforcement.</p>
-          </div>
-          <div className="p-8 bg-zinc-900/30 border border-zinc-900 rounded-2xl space-y-4 hover:border-zinc-800 transition">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400"><Activity className="w-5 h-5" /></div>
-            <h3 className="text-lg font-bold text-white">Minimalist Narrative Layer</h3>
-            <p className="text-zinc-400 text-sm leading-relaxed">Optional asynchronous execution insight provides precise executive actions capped at a strict 150-word profile.</p>
+          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tighter text-zinc-950 leading-[1.05]">
+            Process Business Numbers. <br />
+            <span className="bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 bg-clip-text text-transparent">
+              Extract Absolute Clarity.
+            </span>
+          </h1>
+          <p className="text-xl text-zinc-700 max-w-3xl mx-auto font-medium">
+            Skip messy sheets. Map financial variables instantly through specialized modular computational engines with structural certainty.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+            <Link href="/signup" className="w-full sm:w-auto px-8 py-3.5 bg-zinc-950 text-white font-semibold rounded-2xl hover:bg-zinc-800 transition shadow-lg flex items-center justify-center gap-2">
+              Initialize Free Core <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/services" className="w-full sm:w-auto px-8 py-3.5 bg-white border border-zinc-200 text-zinc-800 font-semibold rounded-2xl hover:bg-zinc-100 transition shadow-sm">
+              Explore 6 Core Modules
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Trust Optimization Blueprint */}
-      <section className="max-w-5xl mx-auto px-4 bg-gradient-to-b from-zinc-900/50 to-zinc-950 border border-zinc-900 rounded-3xl p-12 flex flex-col md:flex-row items-center justify-between gap-10">
-        <div className="space-y-4 max-w-xl">
-          <h2 className="text-3xl font-extrabold text-white">Ready to streamline your metrics?</h2>
-          <p className="text-zinc-400 text-sm leading-relaxed">Join thousands of operators mapping overhead thresholds, project margin minimums, and compounding velocity trajectories with total functional confidence.</p>
+      {/* Visual Cards Section - image_6 pattern feel */}
+      <section className="max-w-7xl mx-auto px-6">
+        <div className="text-center space-y-3 mb-16 max-w-2xl mx-auto">
+          <span className="text-[10px] font-bold text-orange-600 uppercase tracking-widest bg-orange-100 px-3 py-1 rounded-md">SPECIALIZED MODULES</span>
+          <h2 className="text-3xl font-extrabold tracking-tighter text-zinc-950 sm:text-4xl">Scale Through One-Stop Solution</h2>
+          <p className="text-zinc-600 text-base">Select a specific operational environment aligned with your current data processing requirement.</p>
         </div>
-        <Link href="/signup" className="px-7 py-3.5 bg-white text-zinc-950 font-semibold rounded-xl hover:bg-zinc-200 transition shrink-0 text-sm">
-          Establish Live Session
-        </Link>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {calculators.map((c, index) => (
+            <div key={index} className="p-8 bg-card-gradient border border-white rounded-3xl space-y-6 hover:border-orange-100 hover:shadow-2xl hover:shadow-orange-500/10 transition group">
+              <div className="w-12 h-12 rounded-xl bg-white border border-orange-100 flex items-center justify-center shadow-sm">{c.icon}</div>
+              <div>
+                <h3 className="text-xl font-bold text-zinc-950 tracking-tight">{c.title}</h3>
+                <p className="text-zinc-600 text-sm leading-relaxed mt-1">{c.desc}</p>
+              </div>
+              <Link href="/services" className="text-xs font-semibold text-orange-600 group-hover:text-rose-500 flex items-center gap-1.5 transition">
+                Execute Process <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
